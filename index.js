@@ -15,7 +15,12 @@ app.get('/places', (req, res) => {
     res.send(places)
 })
 
-
+// get places by id
+app.get('/places/:id', (req, res) => {
+    const id = req.params.id;
+    const requestedPlace = places.find(place => place.id == id)
+    res.send(requestedPlace)
+})
 
 app.listen(port, () => {
     console.log('Trip Trekkers Server Running on port=', port);
